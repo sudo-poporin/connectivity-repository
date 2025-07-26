@@ -1,6 +1,6 @@
 name: connectivity_repository
 description: Un repositorio de Flutter para manejar la conectividad de red.
-version: 0.1.0+1
+version: 1.0.0
 publish_to: none
 
 environment:
