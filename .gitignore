@@ -32,3 +32,7 @@ build/
 
 # VS Code related
 .vscode/
+
+# Claude related
+.claude/
+CLAUDE.md
