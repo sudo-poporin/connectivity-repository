@@ -9,4 +9,7 @@ abstract interface class IConnectivityRepository {
 
   /// Obtiene el estado de conexión.
   Future<bool> hasNetworkConnection();
+
+  /// Libera recursos: cancela suscripción y cierra el stream.
+  Future<void> dispose();
 }
