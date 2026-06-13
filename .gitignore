@@ -37,3 +37,8 @@ coverage/
 # Claude related
 .claude/
 CLAUDE.md
+
+# AI agent / tooling artifacts (local only)
+AGENTS.md
+.codegraph/
+graphify-out/
