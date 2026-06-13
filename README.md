@@ -29,7 +29,7 @@ dependencies:
   connectivity_repository:
     git:
       url: https://github.com/sudo-poporin/connectivity-repository
-      ref: main
+      ref: v1.0.8
 ```
 
 ### Configuración de plataformas 🔧
