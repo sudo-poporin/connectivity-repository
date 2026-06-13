@@ -190,15 +190,3 @@ El repositorio considera como "online":
 - `ConnectivityResult.vpn` - Conexión VPN
 
 Otros estados como `bluetooth`, `other` o `none` se consideran como "offline".
-
-## Coverage 📊
-
-El paquete mantiene **100% de cobertura** de tests. El workflow de CI verifica
-el umbral en cada push y pull request.
-
-Generar el reporte de cobertura localmente:
-
-```bash
-flutter test --coverage
-lcov --summary coverage/lcov.info
-```
