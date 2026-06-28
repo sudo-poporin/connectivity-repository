@@ -42,3 +42,7 @@ CLAUDE.md
 AGENTS.md
 .codegraph/
 graphify-out/
+
+# Local work artifacts (plans, specs) — never committed
+docs/plans/
+docs/specs/
