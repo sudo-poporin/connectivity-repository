@@ -3,7 +3,9 @@
 Todos los cambios notables de este paquete se documentan en este archivo.
 
 El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/)
-y este proyecto adhiere a [Versionado Semántico](https://semver.org/lang/es/).
+y este proyecto se adhiere a [Versionado Semántico](https://semver.org/lang/es/).
+
+## [Unreleased]
 
 ## [1.0.9] - 2026-06-28
 
