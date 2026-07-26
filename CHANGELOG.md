@@ -7,6 +7,13 @@ y este proyecto se adhiere a [Versionado Semántico](https://semver.org/lang/es/
 
 ## [Unreleased]
 
+## [1.0.10] - 2026-07-26
+
+### Interno
+
+- Bump de `connectivity_plus` de `^7.2.0` a `^7.3.1`.
+- Bump de `build_runner` de `^2.15.0` a `^2.15.1`.
+
 ## [1.0.9] - 2026-06-28
 
 ### Interno
