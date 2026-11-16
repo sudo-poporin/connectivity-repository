@@ -17,8 +17,8 @@ Un repositorio de Flutter para manejar la conectividad de red de forma sencilla 
 
 ## Requisitos 📋
 
-- Dart SDK: `>=3.8.0 <4.0.0`
-- Flutter: `>=1.17.0`
+- Dart SDK: `^3.14.0`
+- Flutter: `>=3.50.0`
 
 ## Instalación 💻
 
@@ -29,7 +29,7 @@ dependencies:
   connectivity_repository:
     git:
       url: https://github.com/sudo-poporin/connectivity-repository
-      ref: v1.0.10
+      ref: v2.0.0
 ```
 
 ### Configuración de plataformas 🔧
