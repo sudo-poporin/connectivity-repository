@@ -6,7 +6,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
-class MockConnectivity extends Mock implements Connectivity {}
+class MockConnectivity extends Mock implements Connectivity;
 
 void main() {
   group('ConnectivityRepository Tests', () {
@@ -20,12 +20,10 @@ void main() {
 
     group('.init()', () {
       test('inicializa el stream de conectividad', () async {
-        when(
-          () => connectivityRepository.connectivity.checkConnectivity(),
-        ).thenAnswer((_) async => [ConnectivityResult.none]);
-        when(
-          () => connectivityRepository.connectivity.onConnectivityChanged,
-        ).thenAnswer((_) => const Stream.empty());
+        when(() => connectivityRepository.connectivity.checkConnectivity())
+            .thenAnswer((_) async => [ConnectivityResult.none]);
+        when(() => connectivityRepository.connectivity.onConnectivityChanged)
+            .thenAnswer((_) => const Stream.empty());
 
         expect(connectivityRepository.init(), completes);
       });
@@ -33,12 +31,10 @@ void main() {
       test(
         'isOnline true tras init si checkConnectivity inicial es wifi',
         () async {
-          when(
-            () => connectivityRepository.connectivity.checkConnectivity(),
-          ).thenAnswer((_) async => [ConnectivityResult.wifi]);
-          when(
-            () => connectivityRepository.connectivity.onConnectivityChanged,
-          ).thenAnswer((_) => const Stream.empty());
+          when(() => connectivityRepository.connectivity.checkConnectivity())
+              .thenAnswer((_) async => [ConnectivityResult.wifi]);
+          when(() => connectivityRepository.connectivity.onConnectivityChanged)
+              .thenAnswer((_) => const Stream.empty());
 
           await connectivityRepository.init();
 
@@ -49,12 +45,10 @@ void main() {
 
     group('.isOnlineStream', () {
       test('emite valor inicial al suscribirse tras init', () async {
-        when(
-          () => connectivityRepository.connectivity.checkConnectivity(),
-        ).thenAnswer((_) async => [ConnectivityResult.wifi]);
-        when(
-          () => connectivityRepository.connectivity.onConnectivityChanged,
-        ).thenAnswer((_) => const Stream.empty());
+        when(() => connectivityRepository.connectivity.checkConnectivity())
+            .thenAnswer((_) async => [ConnectivityResult.wifi]);
+        when(() => connectivityRepository.connectivity.onConnectivityChanged)
+            .thenAnswer((_) => const Stream.empty());
 
         await connectivityRepository.init();
 
@@ -62,12 +56,10 @@ void main() {
       });
 
       test('emite cuando debugChange() actualiza estado', () async {
-        when(
-          () => connectivityRepository.connectivity.checkConnectivity(),
-        ).thenAnswer((_) async => [ConnectivityResult.none]);
-        when(
-          () => connectivityRepository.connectivity.onConnectivityChanged,
-        ).thenAnswer((_) => const Stream.empty());
+        when(() => connectivityRepository.connectivity.checkConnectivity())
+            .thenAnswer((_) async => [ConnectivityResult.none]);
+        when(() => connectivityRepository.connectivity.onConnectivityChanged)
+            .thenAnswer((_) => const Stream.empty());
 
         await connectivityRepository.init();
 
@@ -87,12 +79,10 @@ void main() {
       test('llamar dos veces no duplica eventos del upstream', () async {
         final upstream = StreamController<List<ConnectivityResult>>.broadcast();
         addTearDown(upstream.close);
-        when(
-          () => connectivityRepository.connectivity.checkConnectivity(),
-        ).thenAnswer((_) async => [ConnectivityResult.none]);
-        when(
-          () => connectivityRepository.connectivity.onConnectivityChanged,
-        ).thenAnswer((_) => upstream.stream);
+        when(() => connectivityRepository.connectivity.checkConnectivity())
+            .thenAnswer((_) async => [ConnectivityResult.none]);
+        when(() => connectivityRepository.connectivity.onConnectivityChanged)
+            .thenAnswer((_) => upstream.stream);
 
         await connectivityRepository.init();
         await connectivityRepository.init();
@@ -113,12 +103,10 @@ void main() {
       test('error de upstream no rompe isOnlineStream', () async {
         final upstream = StreamController<List<ConnectivityResult>>.broadcast();
         addTearDown(upstream.close);
-        when(
-          () => connectivityRepository.connectivity.checkConnectivity(),
-        ).thenAnswer((_) async => [ConnectivityResult.none]);
-        when(
-          () => connectivityRepository.connectivity.onConnectivityChanged,
-        ).thenAnswer((_) => upstream.stream);
+        when(() => connectivityRepository.connectivity.checkConnectivity())
+            .thenAnswer((_) async => [ConnectivityResult.none]);
+        when(() => connectivityRepository.connectivity.onConnectivityChanged)
+            .thenAnswer((_) => upstream.stream);
 
         await connectivityRepository.init();
 
@@ -146,12 +134,10 @@ void main() {
       test('cierra stream y cancela suscripción', () async {
         final controller = StreamController<List<ConnectivityResult>>();
         addTearDown(controller.close);
-        when(
-          () => connectivityRepository.connectivity.checkConnectivity(),
-        ).thenAnswer((_) async => [ConnectivityResult.none]);
-        when(
-          () => connectivityRepository.connectivity.onConnectivityChanged,
-        ).thenAnswer((_) => controller.stream);
+        when(() => connectivityRepository.connectivity.checkConnectivity())
+            .thenAnswer((_) async => [ConnectivityResult.none]);
+        when(() => connectivityRepository.connectivity.onConnectivityChanged)
+            .thenAnswer((_) => controller.stream);
 
         await connectivityRepository.init();
         await connectivityRepository.dispose();
@@ -196,9 +182,8 @@ void main() {
 
     group('.hasNetworkConnection()', () {
       test('devuelve true cuando hay conexión a internet', () async {
-        when(
-          () => connectivityRepository.connectivity.checkConnectivity(),
-        ).thenAnswer((_) async => [ConnectivityResult.wifi]);
+        when(() => connectivityRepository.connectivity.checkConnectivity())
+            .thenAnswer((_) async => [ConnectivityResult.wifi]);
 
         final result = await connectivityRepository.hasNetworkConnection();
 
@@ -207,9 +192,8 @@ void main() {
       });
 
       test('devuelve false cuando no hay conexión a internet', () async {
-        when(
-          () => connectivityRepository.connectivity.checkConnectivity(),
-        ).thenAnswer((_) async => [ConnectivityResult.none]);
+        when(() => connectivityRepository.connectivity.checkConnectivity())
+            .thenAnswer((_) async => [ConnectivityResult.none]);
 
         final result = await connectivityRepository.hasNetworkConnection();
 

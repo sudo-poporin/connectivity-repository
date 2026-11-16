@@ -7,6 +7,29 @@ y este proyecto se adhiere a [Versionado Semántico](https://semver.org/lang/es/
 
 ## [Unreleased]
 
+## [2.0.0] - 2026-11-15
+
+### Modificado
+
+- **Cambio que rompe:** el SDK mínimo pasa de Dart 3.8 a Dart 3.14 y el de
+  Flutter, de 1.17 a 3.50. La API pública no cambia, pero un consumidor con un
+  SDK anterior deja de resolver el paquete. Para migrar, subir el consumidor a
+  Flutter 3.50 o superior antes de apuntar el `ref:` a `v2.0.0`.
+- `connectivity_plus` sube a `^7.3.2`.
+
+### Eliminado
+
+- `build_runner` sale de las dependencias de desarrollo: el paquete no genera
+  código y los mocks de los tests son manuales con `mocktail`.
+
+### Interno
+
+- `very_good_analysis` sube a `^11.0.0`. Su única info nueva
+  (`empty_container_bodies`) se corrige en el mock de los tests.
+- `analysis_options.yaml` excluye `build/**`, que Flutter 3.50 agrega al
+  resolver.
+- El código pasa a `dart format` con el estilo de Dart 3.14.
+
 ## [1.0.10] - 2026-07-26
 
 ### Interno
